@@ -45,9 +45,9 @@ const persons: Person[] = [
   }
 ];
 
-const logPerson = (person: any) => {
+const logPerson = (person: Person) => {
   let information: string;
-  if (person.role) {
+  if ('role' in person) {
     information = person.role;
   } else {
     information = person.group;

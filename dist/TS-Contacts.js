@@ -35,7 +35,7 @@ const persons = [
 ];
 const logPerson = (person) => {
     let information;
-    if (person.role) {
+    if ('role' in person) {
         information = person.role;
     }
     else {

@@ -12,9 +12,9 @@ interface Admin {
   role: string;
 }
 
-type Person = User | Admin;
+type Person4 = User | Admin;
 
-const persons: Person[] = [
+const persons4: Person4[] = [
   {
     type: 'admin',
     name: 'Иван Петров',
@@ -29,29 +29,28 @@ const persons: Person[] = [
   }
 ];
 
-const isAdmin = (person: Person) => {
+const isAdmin = (person: Person4): person is Admin => {
   return person.type === 'admin';
 }
 
-const isUser = (person: Person) => {
+const isUser = (person: Person4): person is User => {
   return person.type === 'user';
 }
 
-const logPerson = (person: any) => {
+const logPerson4 = (person: Person4) => {
   let information: string = '';
   if (isAdmin(person)) {
     information = person.role;
-  }
-  if (isUser(person)) {
+  } else if (person && isUser(person)) {
     information = person.group;
   }
   console.log(` - ${person.name}, ${person.age}, ${information}`);
 }
 
 console.log('Admins:');
-persons.filter(isAdmin).forEach(logPerson);
+persons4.filter(isAdmin).forEach(logPerson4);
 
 console.log();
 
 console.log('Users:');
-persons.filter(isUser).forEach(logPerson);
+persons4.filter(isUser).forEach(logPerson4);

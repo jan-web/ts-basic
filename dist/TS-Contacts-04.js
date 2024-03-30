@@ -1,5 +1,5 @@
 "use strict";
-const persons = [
+const persons4 = [
     {
         type: 'admin',
         name: 'Иван Петров',
@@ -19,18 +19,18 @@ const isAdmin = (person) => {
 const isUser = (person) => {
     return person.type === 'user';
 };
-const logPerson = (person) => {
+const logPerson4 = (person) => {
     let information = '';
     if (isAdmin(person)) {
         information = person.role;
     }
-    if (isUser(person)) {
+    else if (person && isUser(person)) {
         information = person.group;
     }
     console.log(` - ${person.name}, ${person.age}, ${information}`);
 };
 console.log('Admins:');
-persons.filter(isAdmin).forEach(logPerson);
+persons4.filter(isAdmin).forEach(logPerson4);
 console.log();
 console.log('Users:');
-persons.filter(isUser).forEach(logPerson);
+persons4.filter(isUser).forEach(logPerson4);
